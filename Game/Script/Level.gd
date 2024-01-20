@@ -10,6 +10,7 @@ func _process(_delta):
 	if Input.is_action_just_pressed("show_Notes"):
 		notes.visible = !notes.visible
 		if notes.visible:
+			notes.load_notes()
 			player.lock_movement()
 		else:
 			player.unlock_movement()

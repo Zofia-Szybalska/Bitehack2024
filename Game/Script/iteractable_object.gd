@@ -5,6 +5,7 @@ var item_cleanage = 0.0
 var can_interact = false
 var item_showed = false
 var item_i
+var knife_clue_added = false
 
 func _process(_delta):
 	if can_interact:
@@ -15,6 +16,9 @@ func _process(_delta):
 				interact()
 
 func interact():
+	if !knife_clue_added:
+		Globals.add_clue("Nóż")
+		knife_clue_added = true
 	item_i = item.instantiate()
 	item_i.player = $"../Player"
 	item_i.position = player.camera.project_position(get_viewport().get_mouse_position(), 0.5)
