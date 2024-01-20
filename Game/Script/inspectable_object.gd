@@ -50,8 +50,10 @@ func _on_area_3d_input_event(_camera, event, _position, _normal, _shape_idx):
 	if event is InputEventMouseButton:
 		if Input.is_action_just_pressed("click"):
 			pressed_on_dirt = true
+			player.is_doing_evil = true
 		elif Input.is_action_just_released("click"):
 			pressed_on_dirt = false
+			player.is_doing_evil = false
 
 func _on_area_3d_mouse_exited():
 	mouse_outside = true

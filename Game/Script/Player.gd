@@ -8,6 +8,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var velocity_y = 0
 var can_move = true
 var sticker
+var is_doing_evil = false
 
 @onready var camera:Camera3D = $Camera3D
 

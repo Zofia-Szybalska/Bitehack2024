@@ -1,6 +1,6 @@
 extends Node3D
 @export var item:PackedScene
-var item_cleanage = 0.0
+var item_cleanage = 1.0
 @export var player:CharacterBody3D
 var can_interact = false
 var item_showed = false
