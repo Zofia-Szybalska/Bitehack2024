@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://70wmnn13nx7o"]
+[gd_scene load_steps=6 format=3 uid="uid://ds5ufjehp7pul"]
 
 [ext_resource type="Script" path="res://Script/policemen.gd" id="1_ywao4"]
 [ext_resource type="PackedScene" uid="uid://25sdy54mhyih" path="res://Assets/policeman1.glb" id="2_x5m5q"]

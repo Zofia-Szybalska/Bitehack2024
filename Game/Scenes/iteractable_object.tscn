@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://7nktqj5168of"]
+[gd_scene load_steps=6 format=3 uid="uid://7nktqj5168of"]
 
 [ext_resource type="Script" path="res://Script/iteractable_object.gd" id="1_nkuxr"]
+[ext_resource type="PackedScene" uid="uid://hfxxsw4kv87n" path="res://Scenes/inspectable_object.tscn" id="2_jtcfx"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gupyt"]
 
@@ -11,6 +12,7 @@ size = Vector3(3, 2, 3)
 
 [node name="Iteractable_object" type="StaticBody3D"]
 script = ExtResource("1_nkuxr")
+item = ExtResource("2_jtcfx")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_gupyt")

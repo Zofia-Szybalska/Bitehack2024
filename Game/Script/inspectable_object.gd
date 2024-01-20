@@ -12,6 +12,7 @@ var cleanage = 1.0
 var cleaning_timer = false
 var cleaned = false
 signal item_cleaned
+signal exited
 
 func _ready():
 	camera = player.camera
@@ -37,6 +38,8 @@ func clean():
 		$Timer.start()
 
 func _physics_process(_delta):
+	if Input.is_action_just_pressed("ui_cancel"):
+		exited.emit(cleanage)
 	if Input.is_action_just_pressed("click"):
 		pressed = true
 	elif Input.is_action_just_released("click"):
@@ -49,7 +52,6 @@ func _on_area_3d_input_event(_camera, event, _position, _normal, _shape_idx):
 			pressed_on_dirt = true
 		elif Input.is_action_just_released("click"):
 			pressed_on_dirt = false
-
 
 func _on_area_3d_mouse_exited():
 	mouse_outside = true
