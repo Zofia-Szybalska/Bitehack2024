@@ -1,29 +1,41 @@
 [gd_scene load_steps=4 format=3 uid="uid://hfxxsw4kv87n"]
 
 [ext_resource type="Script" path="res://Script/inspectable_object.gd" id="1_qpwe2"]
-
-[sub_resource type="PrismMesh" id="PrismMesh_xmoxk"]
+[ext_resource type="PackedScene" uid="uid://bu6kn64vy7fhw" path="res://Assets/3D/knife.glb" id="2_oks1t"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7qtf"]
-size = Vector3(0.108601, 0.49465, 0.535963)
+size = Vector3(0.776382, 0.119308, 0.0675576)
 
 [node name="Item" type="Node3D" node_paths=PackedStringArray("camera")]
 script = ExtResource("1_qpwe2")
 camera = NodePath("Camera3D")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-layers = 7
-mesh = SubResource("PrismMesh_xmoxk")
-
-[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
-collision_layer = 7
-collision_mask = 7
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
-transform = Transform3D(0.889121, -0.457672, 0, 0.457672, 0.889121, 0, 0, 0, 1, 0.34579, -0.0907661, 0)
-shape = SubResource("BoxShape3D_g7qtf")
-
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
-[connection signal="input_event" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_input_event"]
+[node name="knife" parent="." instance=ExtResource("2_oks1t")]
+
+[node name="Knife" parent="knife" index="0"]
+layers = 8
+
+[node name="Area3D2" type="Area3D" parent="knife/Knife" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.920235, -0.0832367, -0.00362015)
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="knife/Knife/Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60048, 0.0328645, 0)
+shape = SubResource("BoxShape3D_g7qtf")
+
+[node name="Area3D" type="Area3D" parent="knife/Knife" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931127, 0, -0.00181007)
+collision_layer = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="knife/Knife/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60048, 0.0328645, 0)
+shape = SubResource("BoxShape3D_g7qtf")
+
+[connection signal="input_event" from="knife/Knife/Area3D" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="knife/Knife/Area3D" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="knife/Knife/Area3D" to="." method="_on_area_3d_mouse_exited"]
+
+[editable path="knife"]

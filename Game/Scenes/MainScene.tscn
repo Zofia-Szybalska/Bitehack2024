@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://b8jr16qyhyyk8"]
+[gd_scene load_steps=10 format=3 uid="uid://b8jr16qyhyyk8"]
 
 [ext_resource type="Script" path="res://Script/Level.gd" id="1_ulb51"]
 [ext_resource type="PackedScene" uid="uid://06bmrdxwdv0g" path="res://Scenes/player.tscn" id="1_vj33c"]
 [ext_resource type="PackedScene" uid="uid://csug7d77nfwn5" path="res://Scenes/notes.tscn" id="3_3u7ni"]
 [ext_resource type="PackedScene" uid="uid://7nktqj5168of" path="res://Scenes/iteractable_object.tscn" id="4_j6v2e"]
 [ext_resource type="PackedScene" uid="uid://ds5ufjehp7pul" path="res://Scenes/policemen.tscn" id="5_1q41x"]
+[ext_resource type="PackedScene" uid="uid://bu6kn64vy7fhw" path="res://Assets/3D/knife.glb" id="5_uhshr"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iuucq"]
 size = Vector3(14.867, 0.0690323, 14.8694)
@@ -46,6 +47,10 @@ grow_horizontal = 0
 
 [node name="Iteractable_object" parent="." instance=ExtResource("4_j6v2e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1, 0)
+item = ExtResource("4_j6v2e")
+
+[node name="knife" parent="Iteractable_object" instance=ExtResource("5_uhshr")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0.240114, 0.521863, -0.263779)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.828794, 0.559555, 0, -0.559555, 0.828794, 0, 5, 0)
@@ -59,3 +64,5 @@ transform = Transform3D(0.736566, 3.87297e-07, -0.67633, 0, 1, 5.72618e-07, 0.67
 
 [node name="Policemen" parent="Path3D/PathFollow3D" instance=ExtResource("5_1q41x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.890129, 4)
+
+[editable path="Iteractable_object"]

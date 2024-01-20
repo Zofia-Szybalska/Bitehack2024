@@ -1,5 +1,5 @@
 extends Node3D
-
+@export var item:PackedScene
 var can_interact = false
 
 
@@ -9,6 +9,9 @@ func _process(_delta):
 			interact()
 
 func interact():
+	var item_i = item.instantiate()
+	item.position = Vector3(0,0,0)
+	get_tree().add_child(item_i)
 	print("Interakcja z obiektem")
 
 func _on_area_3d_body_entered(body):

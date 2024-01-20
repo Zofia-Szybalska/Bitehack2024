@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_gupyt"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_4nyew"]
-radius = 1.3455
+radius = 1.72514
 
 [sub_resource type="BoxMesh" id="BoxMesh_7okro"]
 
