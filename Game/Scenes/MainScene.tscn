@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b8jr16qyhyyk8"]
+[gd_scene load_steps=6 format=3 uid="uid://b8jr16qyhyyk8"]
 
+[ext_resource type="Script" path="res://Script/Level.gd" id="1_ulb51"]
 [ext_resource type="PackedScene" uid="uid://06bmrdxwdv0g" path="res://Scenes/player.tscn" id="1_vj33c"]
+[ext_resource type="PackedScene" uid="uid://csug7d77nfwn5" path="res://Scenes/notes.tscn" id="3_3u7ni"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_iuucq"]
 size = Vector3(14.867, 0.0690323, 14.8694)
@@ -9,6 +11,7 @@ size = Vector3(14.867, 0.0690323, 14.8694)
 size = Vector2(15, 15)
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_ulb51")
 
 [node name="Player" parent="." instance=ExtResource("1_vj33c")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.17713, 0)
@@ -20,3 +23,11 @@ shape = SubResource("BoxShape3D_iuucq")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 mesh = SubResource("PlaneMesh_jisdy")
+
+[node name="Notes" parent="." instance=ExtResource("3_3u7ni")]
+visible = false
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 0
