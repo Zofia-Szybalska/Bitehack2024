@@ -12,5 +12,5 @@ func _physics_process(_delta):
 	var collision = space.intersect_ray(query)
 	if collision:
 		if collision.collider is CharacterBody3D and collision.collider.has_method("lock_movement"):
-			print("Zauważono gracza.")
+			#print("Zauważono gracza.")
 

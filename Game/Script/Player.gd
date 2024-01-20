@@ -7,6 +7,7 @@ var look_sensitivity = ProjectSettings.get_setting("player/look_sensitivity")
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var velocity_y = 0
 var can_move = true
+var sticker
 
 @onready var camera:Camera3D = $Camera3D
 
@@ -15,12 +16,20 @@ func lock_movement():
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
+func _on_sticker_area_entered(new_sticker):
+	sticker = new_sticker
+
+func _on_sticker_area_exited():
+	sticker = null
+
 func unlock_movement():
 	can_move = true
 	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _physics_process(delta):
+	if Input.is_action_just_pressed("interact") and sticker and $Camera3D/RayCast3D.is_colliding():
+		sticker.collect()
 	if can_move:
 		var horizontal_velocity = Input.get_vector("move_left", "move_right", "move_forward", "move_backwards").normalized() * speed
 		velocity = horizontal_velocity.x * global_transform.basis.x + horizontal_velocity.y * global_transform.basis.z
