@@ -151,7 +151,7 @@ mesh = SubResource("PlaneMesh_n47wt")
 shape = SubResource("BoxShape3D_i6frt")
 
 [node name="Wall6" type="StaticBody3D" parent="Enviroment"]
-transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, -10, 7.5, 2)
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, -11, 7.5, 2)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Enviroment/Wall6"]
 mesh = SubResource("PlaneMesh_n47wt")
