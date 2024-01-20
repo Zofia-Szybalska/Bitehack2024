@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://cudb85a7pf2f5"]
+[gd_scene load_steps=2 format=3 uid="uid://cudb85a7pf2f5"]
+
+[ext_resource type="PackedScene" uid="uid://cnjlwhdl4hlih" path="res://Assets/3D/victim1.glb" id="1_nk1se"]
 
 [node name="victim" type="Node3D"]
+
+[node name="victim1" parent="." instance=ExtResource("1_nk1se")]

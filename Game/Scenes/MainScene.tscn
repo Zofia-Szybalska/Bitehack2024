@@ -68,6 +68,32 @@ transform = Transform3D(0.736569, 3.87295e-07, -0.676327, 1.42105e-14, 1, 5.7261
 [node name="Policemen" parent="Path3D/PathFollow3D" instance=ExtResource("5_1q41x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.890129, 4)
 
+[node name="policeman5" parent="Path3D/PathFollow3D/Policemen" index="3"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Skeleton3D" parent="Path3D/PathFollow3D/Policemen/policeman5/Armature_001" index="0"]
+bones/0/position = Vector3(-0.0379941, -0.305835, -92.0281)
+bones/0/rotation = Quaternion(-0.700774, 0.0062956, -0.0273699, 0.712831)
+bones/1/rotation = Quaternion(-0.0360672, 0.00273088, 0.00412217, 0.999337)
+bones/2/rotation = Quaternion(0.00338579, 0.00568177, 0.00479914, 0.999967)
+bones/3/rotation = Quaternion(0.00338562, 0.00568179, 0.00479913, 0.999967)
+bones/4/rotation = Quaternion(0.0377638, -0.00357851, -0.0106849, 0.999223)
+bones/5/rotation = Quaternion(0.0235005, -0.0268053, 0.0160074, 0.999236)
+bones/6/rotation = Quaternion(-0.674805, -0.320501, 0.537961, -0.390532)
+bones/7/rotation = Quaternion(0.334097, -0.0818559, -0.0501318, 0.937638)
+bones/8/rotation = Quaternion(0.108955, 0.170277, 0.255908, 0.945328)
+bones/10/rotation = Quaternion(0.644113, -0.347198, 0.57764, 0.361805)
+bones/11/rotation = Quaternion(0.35092, 0.0950162, 0.174973, 0.914993)
+bones/12/rotation = Quaternion(0.13076, -0.125945, -0.192604, 0.964336)
+bones/14/rotation = Quaternion(0.0640775, 0.196111, 0.977372, -0.0466684)
+bones/15/rotation = Quaternion(-0.559698, 0.0108229, -0.000580616, 0.828626)
+bones/16/rotation = Quaternion(0.21403, 0.0909305, -0.0101225, 0.972533)
+bones/17/rotation = Quaternion(-0.254759, 0.493448, -0.760755, 0.335945)
+bones/19/rotation = Quaternion(-0.0735589, 0.0910893, 0.992527, -0.0343822)
+bones/20/rotation = Quaternion(-0.206557, -0.0674158, 0.0118053, 0.976038)
+bones/21/rotation = Quaternion(0.512153, -0.0812682, -0.0718507, 0.852016)
+bones/22/rotation = Quaternion(-0.317236, -0.268787, 0.8755, 0.246202)
+
 [node name="Enviroment" type="Node3D" parent="."]
 
 [node name="Floor" type="StaticBody3D" parent="Enviroment"]
@@ -134,3 +160,5 @@ mesh = SubResource("PlaneMesh_n47wt")
 shape = SubResource("BoxShape3D_i6frt")
 
 [editable path="Iteractable_object"]
+[editable path="Path3D/PathFollow3D/Policemen"]
+[editable path="Path3D/PathFollow3D/Policemen/policeman5"]
