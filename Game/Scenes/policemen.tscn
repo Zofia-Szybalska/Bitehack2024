@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ds5ufjehp7pul"]
+[gd_scene load_steps=6 format=3 uid="uid://70wmnn13nx7o"]
 
 [ext_resource type="Script" path="res://Script/policemen.gd" id="1_ywao4"]
-[ext_resource type="PackedScene" uid="uid://cdfc55i38cc41" path="res://Assets/3D/policeman.glb" id="2_laot1"]
+[ext_resource type="PackedScene" uid="uid://25sdy54mhyih" path="res://Assets/policeman1.glb" id="2_x5m5q"]
+[ext_resource type="AnimationLibrary" uid="uid://e21gtqg06n3x" path="res://Assets/Walking.dae" id="3_21oq2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_xc0sk"]
 
@@ -26,23 +27,10 @@ target_position = Vector3(0, 0, -10)
 collision_mask = 2
 debug_shape_thickness = 5
 
-[node name="policeman" parent="." instance=ExtResource("2_laot1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.89218, 0)
+[node name="policeman1" parent="." instance=ExtResource("2_x5m5q")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, -0.880043, 0)
 
-[node name="Skeleton3D" parent="policeman/rig_003" index="0"]
-bones/8/rotation = Quaternion(-0.179751, -0.857421, -0.400537, 0.268492)
-bones/8/scale = Vector3(1, 19.5772, 1)
-bones/9/rotation = Quaternion(-0.168306, 0.836397, 0.430581, 0.294472)
-bones/9/scale = Vector3(1, 20.0748, 1)
-bones/10/rotation = Quaternion(0.990546, 0.0460537, -0.128975, 0.00789518)
-bones/10/scale = Vector3(1, 24.6106, 1)
-bones/11/rotation = Quaternion(-0.999195, -0.0352972, 0.0184785, 0.00478551)
-bones/11/scale = Vector3(1, 26.3466, 1)
-bones/123/rotation = Quaternion(1.36348e-07, 0.00150601, 9.05642e-10, 0.999999)
-bones/126/rotation = Quaternion(1.18275e-07, 2.34704e-07, 1.08037e-07, 1)
-bones/141/rotation = Quaternion(1.53709e-08, 3.03462e-05, 3.26005e-08, 1)
-bones/142/rotation = Quaternion(0.117972, -2.99849e-05, 3.58957e-06, 0.993017)
-bones/143/rotation = Quaternion(1.02969e-07, 0.699421, 5.25808e-08, 0.71471)
-bones/144/rotation = Quaternion(-0.0780094, -0.695117, -0.00769969, 0.71461)
-
-[editable path="policeman"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="policeman1"]
+libraries = {
+"Walking": ExtResource("3_21oq2")
+}
