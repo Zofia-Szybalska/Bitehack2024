@@ -1,6 +1,5 @@
 extends CharacterBody3D
 
-
 @export var speed = 10
 @export var jump_velocity = 4.5
 

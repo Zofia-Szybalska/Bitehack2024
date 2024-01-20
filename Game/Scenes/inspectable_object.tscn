@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://hfxxsw4kv87n"]
+
+[ext_resource type="Script" path="res://Script/inspectable_object.gd" id="1_qpwe2"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_xmoxk"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g7qtf"]
+size = Vector3(0.108601, 0.49465, 0.535963)
+
+[node name="Item" type="Node3D" node_paths=PackedStringArray("camera")]
+script = ExtResource("1_qpwe2")
+camera = NodePath("Camera3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+layers = 7
+mesh = SubResource("PrismMesh_xmoxk")
+
+[node name="Area3D" type="Area3D" parent="MeshInstance3D"]
+collision_layer = 7
+collision_mask = 7
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/Area3D"]
+transform = Transform3D(0.889121, -0.457672, 0, 0.457672, 0.889121, 0, 0, 0, 1, 0.34579, -0.0907661, 0)
+shape = SubResource("BoxShape3D_g7qtf")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[connection signal="input_event" from="MeshInstance3D/Area3D" to="." method="_on_area_3d_input_event"]

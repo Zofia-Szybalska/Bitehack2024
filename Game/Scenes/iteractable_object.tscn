@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://7nktqj5168of"]
+
+[ext_resource type="Script" path="res://Script/iteractable_object.gd" id="1_nkuxr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gupyt"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4nyew"]
+radius = 1.3455
+
+[sub_resource type="BoxMesh" id="BoxMesh_7okro"]
+
+[node name="Iteractable_object" type="StaticBody3D"]
+script = ExtResource("1_nkuxr")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_gupyt")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_4nyew")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_7okro")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
