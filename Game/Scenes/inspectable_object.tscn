@@ -1,21 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://hfxxsw4kv87n"]
+[gd_scene load_steps=9 format=3 uid="uid://hfxxsw4kv87n"]
 
 [ext_resource type="Script" path="res://Script/inspectable_object.gd" id="1_qpwe2"]
 [ext_resource type="PackedScene" uid="uid://bu6kn64vy7fhw" path="res://Assets/3D/knife.glb" id="2_oks1t"]
+[ext_resource type="Texture2D" uid="uid://cirxqovnnm5rr" path="res://Assets/2D/Fingerprint.png" id="3_712jy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g7qtf"]
-size = Vector3(0.776382, 0.119308, 0.0675576)
+size = Vector3(0.546429, 0.119308, 0.056931)
 
-[node name="Item" type="Node3D" node_paths=PackedStringArray("camera")]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6hml"]
+transparency = 1
+albedo_texture = ExtResource("3_712jy")
+albedo_texture_force_srgb = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_md7ek"]
+transparency = 2
+alpha_scissor_threshold = 0.566
+alpha_antialiasing_mode = 0
+depth_draw_mode = 1
+albedo_texture = ExtResource("3_712jy")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_dodp7"]
+material = SubResource("StandardMaterial3D_md7ek")
+size = Vector2(0.06, 0.06)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nw4bu"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0)
+
+[node name="Item" type="Node3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_qpwe2")
-camera = NodePath("Camera3D")
-
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
 
 [node name="knife" parent="." instance=ExtResource("2_oks1t")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
 [node name="Knife" parent="knife" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 layers = 8
 
 [node name="Area3D2" type="Area3D" parent="knife/Knife" index="0"]
@@ -26,16 +46,42 @@ collision_layer = 8
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60048, 0.0328645, 0)
 shape = SubResource("BoxShape3D_g7qtf")
 
-[node name="Area3D" type="Area3D" parent="knife/Knife" index="1"]
+[node name="Area3DDirt" type="Area3D" parent="knife/Knife" index="1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.931127, 0, -0.00181007)
 collision_layer = 8
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="knife/Knife/Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.60048, 0.0328645, 0)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="knife/Knife/Area3DDirt"]
+transform = Transform3D(1, 0, -3.55271e-15, 0, 1, 0, 3.55271e-15, 0, 1, 1.60048, 0.0328645, -1.16415e-10)
 shape = SubResource("BoxShape3D_g7qtf")
 
-[connection signal="input_event" from="knife/Knife/Area3D" to="." method="_on_area_3d_input_event"]
-[connection signal="mouse_entered" from="knife/Knife/Area3D" to="." method="_on_area_3d_mouse_entered"]
-[connection signal="mouse_exited" from="knife/Knife/Area3D" to="." method="_on_area_3d_mouse_exited"]
+[node name="Fingerprints" type="Node3D" parent="knife/Knife/Area3DDirt/CollisionShape3D"]
+transform = Transform3D(3.33333, 0, 0, 0, 3.33333, 0, 0, 0, 3.33333, -0.669353, -0.0328645, 0.0121615)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="knife/Knife/Area3DDirt/CollisionShape3D/Fingerprints"]
+transform = Transform3D(0.297231, -0.040668, 2.97698e-10, 0.0391783, 0.286343, 0.080454, -0.0109063, -0.0797113, 0.289011, 0.275551, 0.0239304, -0.00487633)
+material_override = SubResource("StandardMaterial3D_p6hml")
+mesh = SubResource("PlaneMesh_dodp7")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_nw4bu")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="knife/Knife/Area3DDirt/CollisionShape3D/Fingerprints"]
+transform = Transform3D(-1.31134e-08, 0, 0.3, 0, 0.3, 0, -0.3, 0, -1.31134e-08, 0.130774, 0.0242932, -0.00516285)
+material_override = SubResource("StandardMaterial3D_p6hml")
+mesh = SubResource("PlaneMesh_dodp7")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="knife/Knife/Area3DDirt/CollisionShape3D/Fingerprints"]
+transform = Transform3D(-0.264423, 0, 0.141705, 0, 0.3, 0, -0.141705, 0, -0.264423, 0.206365, 0.0242932, -0.00516285)
+material_override = SubResource("StandardMaterial3D_p6hml")
+mesh = SubResource("PlaneMesh_dodp7")
+skeleton = NodePath("../../..")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="input_event" from="knife/Knife/Area3DDirt" to="." method="_on_area_3d_input_event"]
+[connection signal="mouse_entered" from="knife/Knife/Area3DDirt" to="." method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="knife/Knife/Area3DDirt" to="." method="_on_area_3d_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
 [editable path="knife"]

@@ -1,12 +1,21 @@
 extends Node3D
 
-@export var camera: Camera3D
+var camera: Camera3D
+@export var player: CharacterBody3D
 
 var pressed = false
 var mouse = Vector2()
 var pressed_on_dirt = false
 var mouse_outside = true
 @onready var mesh = $knife
+var cleanage = 1.0
+var cleaning_timer = false
+var cleaned = false
+signal item_cleaned
+
+func _ready():
+	camera = player.camera
+
 func _input(event):
 	if event is InputEventMouseButton and mouse_outside:
 		pressed_on_dirt = false
@@ -18,8 +27,14 @@ func _input(event):
 		mesh.rotation.y += event.relative.x*0.005
 
 func clean():
-	if !mouse_outside:
-		print("Czyszczone")
+	if !(mouse_outside and cleaning_timer):
+		cleanage -= 0.03
+		if cleanage < 0 and !cleaned:
+			cleaned = true
+			$knife/Knife/Area3DDirt/CollisionShape3D/Fingerprints.queue_free()
+			item_cleaned.emit()
+		cleaning_timer = true
+		$Timer.start()
 
 func _physics_process(_delta):
 	if Input.is_action_just_pressed("click"):
@@ -39,3 +54,5 @@ func _on_area_3d_input_event(_camera, event, _position, _normal, _shape_idx):
 func _on_area_3d_mouse_exited():
 	mouse_outside = true
 
+func _on_timer_timeout():
+	cleaning_timer = false
