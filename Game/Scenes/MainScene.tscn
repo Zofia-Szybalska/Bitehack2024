@@ -232,30 +232,57 @@ camera_attributes = ExtResource("9_airth")
 [node name="Lights" type="Node3D" parent="."]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.07018, 8.78326, -3.09346)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.44443, 8.78326, -3.09346)
 light_color = Color(0.909804, 0.764706, 0.309804, 1)
-light_energy = 16.0
+light_energy = 10.537
+light_indirect_energy = 1.39
+light_volumetric_fog_energy = 1.488
+light_size = 0.244
+shadow_enabled = true
 spot_range = 12.433
 spot_angle = 37.8
 
 [node name="SpotLight3D2" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 6.07018, 8.78326, 7.30578)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 3.44443, 8.78326, 7.30578)
 light_color = Color(0.909804, 0.764706, 0.309804, 1)
-light_energy = 16.0
+light_energy = 10.537
+light_indirect_energy = 1.39
+light_volumetric_fog_energy = 1.488
+light_size = 0.244
+shadow_enabled = true
 spot_range = 12.433
 spot_angle = 37.8
 
 [node name="SpotLight3D3" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.14676, 8.78326, 7.30578)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.08583, 8.78326, 7.30578)
 light_color = Color(0.909804, 0.764706, 0.309804, 1)
-light_energy = 16.0
+light_energy = 10.537
+light_indirect_energy = 1.39
+light_volumetric_fog_energy = 1.488
+light_size = 0.244
+shadow_enabled = true
+spot_range = 12.433
+spot_angle = 37.8
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="Lights"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -7.46578, 8.78326, 7.30578)
+light_color = Color(0.909804, 0.764706, 0.309804, 1)
+light_energy = 10.537
+light_indirect_energy = 1.39
+light_volumetric_fog_energy = 1.488
+light_size = 0.244
+shadow_enabled = true
 spot_range = 12.433
 spot_angle = 37.8
 
 [node name="SpotLight3D4" type="SpotLight3D" parent="Lights"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -4.14676, 8.78326, -4.31282)
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -3.08583, 8.78326, -4.31282)
 light_color = Color(0.909804, 0.764706, 0.309804, 1)
-light_energy = 16.0
+light_energy = 10.537
+light_indirect_energy = 1.39
+light_volumetric_fog_energy = 1.488
+light_size = 0.244
+shadow_enabled = true
 spot_range = 12.433
 spot_angle = 37.8
 
