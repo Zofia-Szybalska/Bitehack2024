@@ -1,10 +1,10 @@
 [gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://cyqm6lkn21bkj"]
 
-[ext_resource type="Texture2D" uid="uid://bbdwbctl38ohd" path="res://Assets/3D/fireplace_Albedo.png" id="1_2rovl"]
-[ext_resource type="Texture2D" uid="uid://bbrv1mfwyr1dd" path="res://Assets/3D/fireplace_AO.png" id="2_puuau"]
-[ext_resource type="Texture2D" uid="uid://smmmwevqoide" path="res://Assets/3D/fireplace_Metallic.png" id="3_dqfn8"]
-[ext_resource type="Texture2D" uid="uid://d1vrqnth0o1on" path="res://Assets/3D/fireplace_Normal.png" id="4_gvhje"]
-[ext_resource type="Texture2D" uid="uid://dounyg5sp3qdc" path="res://Assets/3D/fireplace_Roughness.png" id="5_0v0un"]
+[ext_resource type="Texture2D" uid="uid://bbdwbctl38ohd" path="res://Assets/Textures/Fireplace/fireplace_Albedo.png" id="1_2rovl"]
+[ext_resource type="Texture2D" uid="uid://bbrv1mfwyr1dd" path="res://Assets/Textures/Fireplace/fireplace_AO.png" id="2_puuau"]
+[ext_resource type="Texture2D" uid="uid://smmmwevqoide" path="res://Assets/Textures/Fireplace/fireplace_Metallic.png" id="3_dqfn8"]
+[ext_resource type="Texture2D" uid="uid://d1vrqnth0o1on" path="res://Assets/Textures/Fireplace/fireplace_Normal.png" id="4_gvhje"]
+[ext_resource type="Texture2D" uid="uid://dounyg5sp3qdc" path="res://Assets/Textures/Fireplace/fireplace_Roughness.png" id="5_0v0un"]
 
 [resource]
 albedo_texture = ExtResource("1_2rovl")
