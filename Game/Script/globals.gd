@@ -13,9 +13,11 @@ var clues = []
 var achivments = []
 
 func reset(reset_message):
+	var knifes = get_tree().get_nodes_in_group("knife")
+	for knife in knifes:
+		knife.queue_free()
 	if all_achievements:
 		pass
-	caugth = false
 	collected_stickers = 0
 	curr_clues = 0
 	clues = []

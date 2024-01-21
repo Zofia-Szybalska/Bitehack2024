@@ -7,9 +7,6 @@ func reset(message):
 	get_tree().reload_current_scene()
 
 func _physics_process(_delta):
-	if ray_cast.is_colliding():
-		pass
-		#print("Policjant zauważył gracza.")
 	var space = get_world_3d().direct_space_state
 	var query = PhysicsRayQueryParameters3D.create($RayCast3D.global_position,
 			$RayCast3D.global_position - $RayCast3D.global_transform.basis.z * 100)
