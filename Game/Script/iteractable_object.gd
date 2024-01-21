@@ -20,7 +20,7 @@ func interact():
 		Globals.add_clue("Nóż")
 		knife_clue_added = true
 	item_i = item.instantiate()
-	item_i.player = $"../Player"
+	item_i.player = Globals.player
 	item_i.position = player.camera.project_position(get_viewport().get_mouse_position(), 0.5)
 	item_i.rotation = player.rotation
 	item_i.cleanage = item_cleanage

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://b8jr16qyhyyk8"]
+[gd_scene load_steps=47 format=3 uid="uid://b8jr16qyhyyk8"]
 
 [ext_resource type="Script" path="res://Script/Level.gd" id="1_ulb51"]
 [ext_resource type="PackedScene" uid="uid://06bmrdxwdv0g" path="res://Scenes/player.tscn" id="1_vj33c"]
@@ -8,12 +8,12 @@
 [ext_resource type="Material" uid="uid://cyqhbvrbpcuej" path="res://Assets/Materials/Floor.tres" id="6_cymni"]
 [ext_resource type="Material" uid="uid://c0ci7kwq3253h" path="res://Assets/Materials/Walls.tres" id="7_tc4ve"]
 [ext_resource type="Environment" uid="uid://dw7t52jp87t0y" path="res://MainEnviro.tres" id="8_3b10a"]
-[ext_resource type="CameraAttributesPractical" uid="uid://rhm0stt2kb8" path="res://Scenes/MainCamera.tres" id="9_airth"]
+[ext_resource type="CameraAttributesPractical" path="res://Scenes/MainCamera.tres" id="9_airth"]
 [ext_resource type="PackedScene" uid="uid://dtdgkt37aa2te" path="res://Assets/3D/chair.fbx" id="10_8emrx"]
 [ext_resource type="PackedScene" uid="uid://bgs4lw30bgsol" path="res://Assets/3D/unseen_fancy_bed.glb" id="10_ohslt"]
 [ext_resource type="PackedScene" uid="uid://b5gticyrolj27" path="res://Assets/3D/Old_Dusty_Bookshelf.glb" id="11_0rs8i"]
 [ext_resource type="PackedScene" uid="uid://dk3bw6oqb1nyq" path="res://Assets/3D/fireplace.fbx" id="12_i3ici"]
-[ext_resource type="Material" uid="uid://b4dgshsoodn0y" path="res://Assets/Materials/chair.tres" id="12_v8lmy"]
+[ext_resource type="Material" path="res://Assets/Materials/chair.tres" id="12_v8lmy"]
 [ext_resource type="PackedScene" uid="uid://c7xdvn1lgn413" path="res://Assets/3D/candle.glb" id="13_dcpj0"]
 [ext_resource type="Material" uid="uid://cyqm6lkn21bkj" path="res://Assets/Materials/fireplace.tres" id="13_sa5lk"]
 [ext_resource type="Texture2D" uid="uid://q1fa6xh6gnke" path="res://Assets/Textures/10258_Wardrobe_diffuse_v1.jpg" id="15_e6v8u"]
@@ -25,6 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://bkigfn1m81srp" path="res://Assets/3D/old_armchair_textures_comparison.glb" id="22_qeikm"]
 [ext_resource type="PackedScene" uid="uid://cnjlwhdl4hlih" path="res://Assets/3D/victim1.glb" id="23_na5pe"]
 [ext_resource type="PackedScene" uid="uid://begvxwyqawgxf" path="res://Assets/3D/door.glb" id="24_a50i3"]
+[ext_resource type="PackedScene" uid="uid://d2y3kqbis0xu8" path="res://Achievements/achievement_earned.tscn" id="26_f8jmn"]
 [ext_resource type="PackedScene" uid="uid://dsbrfqbn0c1xe" path="res://Scenes/cigarette.tscn" id="26_rea4p"]
 [ext_resource type="PackedScene" uid="uid://i0y7ep04wrlb" path="res://Scenes/footprint.tscn" id="27_g01r8"]
 [ext_resource type="PackedScene" uid="uid://cxi8gn088svrc" path="res://Scenes/sticker.tscn" id="28_4ssk2"]
@@ -426,8 +427,14 @@ transform = Transform3D(0.0947525, 0, 0, 0, 0.0947525, 0, 0, 0, 0.0947525, 0, 0.
 [node name="Sticker" parent="Stickers" instance=ExtResource("28_4ssk2")]
 transform = Transform3D(-2.15987e-08, 0, 0.494121, 0, 0.494121, 0, -0.494121, 0, -2.15987e-08, 2.54669, 0.466086, 9.59544)
 
+[node name="CollisionShape3D" parent="Stickers/Sticker/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.41742)
+
 [node name="Sticker2" parent="Stickers" instance=ExtResource("28_4ssk2")]
 transform = Transform3D(-2.15987e-08, 0, 0.494121, 0, 0.494121, 0, -0.494121, 0, -2.15987e-08, 0.97817, 0.296118, 9.59544)
+
+[node name="CollisionShape3D" parent="Stickers/Sticker2/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.273435)
 
 [node name="Sticker3" parent="Stickers" instance=ExtResource("28_4ssk2")]
 transform = Transform3D(0.494121, 0, 0, 0, 0.494121, 0, 0, 0, 0.494121, 3.78891, 0.591245, 4.12751)
@@ -452,7 +459,19 @@ player = NodePath("../../Player")
 transform = Transform3D(0.89463, 0, 0.446807, 0, 1, 0, -0.446807, 0, 0.89463, 3.97377, 0.0304832, -5.06198)
 player = NodePath("../../Player")
 
+[node name="Achievement_earned" parent="." instance=ExtResource("26_f8jmn")]
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="player_entered_range" from="Stickers/Sticker" to="Player" method="_on_sticker_area_entered"]
+[connection signal="player_exited_range" from="Stickers/Sticker" to="Player" method="_on_sticker_area_exited"]
+[connection signal="player_entered_range" from="Stickers/Sticker2" to="Player" method="_on_sticker_area_entered"]
+[connection signal="player_exited_range" from="Stickers/Sticker2" to="Player" method="_on_sticker_area_exited"]
+[connection signal="player_entered_range" from="Stickers/Sticker3" to="Player" method="_on_sticker_area_entered"]
+[connection signal="player_exited_range" from="Stickers/Sticker3" to="Player" method="_on_sticker_area_exited"]
+[connection signal="player_entered_range" from="Stickers/Sticker5" to="Player" method="_on_sticker_area_entered"]
+[connection signal="player_exited_range" from="Stickers/Sticker5" to="Player" method="_on_sticker_area_exited"]
+[connection signal="player_entered_range" from="Stickers/Sticker4" to="Player" method="_on_sticker_area_entered"]
+[connection signal="player_exited_range" from="Stickers/Sticker4" to="Player" method="_on_sticker_area_exited"]
 
 [editable path="Path3D/PathFollow3D/Policemen"]
 [editable path="Path3D/PathFollow3D/Policemen/policeman5"]
@@ -460,4 +479,6 @@ player = NodePath("../../Player")
 [editable path="Models/Side desk/Desk"]
 [editable path="Models/Big desk/Body_low"]
 [editable path="Models/Fireplace/fireplace"]
+[editable path="Stickers/Sticker"]
+[editable path="Stickers/Sticker2"]
 [editable path="Clues/Iteractable_object"]

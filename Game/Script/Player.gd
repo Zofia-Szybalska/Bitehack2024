@@ -13,6 +13,11 @@ var camera_movement_blocked = false
 
 @onready var camera:Camera3D = $Camera3D
 
+func _ready():
+	Globals.player = self
+	speed = 10
+	jump_velocity = 4.5
+
 func lock_movement():
 	can_move = false
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
@@ -37,14 +42,14 @@ func unlock_movement():
 
 func see_cigarette():
 	if $Camera3D/RayCast3D.is_colliding():
-		if $Camera3D/RayCast3D.get_collider().get_parent().has_method("cigarette"):
+		if $Camera3D/RayCast3D.get_collider() and $Camera3D/RayCast3D.get_collider().get_parent().has_method("cigarette"):
 			print("Wykryty!")
 			return true
 	return false
 
 func see_footprint():
 	if $Camera3D/RayCast3D.is_colliding():
-		if $Camera3D/RayCast3D.get_collider().get_parent().has_method("footprint"):
+		if $Camera3D/RayCast3D.get_collider() and $Camera3D/RayCast3D.get_collider().get_parent().has_method("footprint"):
 			return true
 	return false
 

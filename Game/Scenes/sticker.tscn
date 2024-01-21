@@ -11,7 +11,7 @@ albedo_texture = ExtResource("1_ujnqb")
 size = Vector2(0.5, 0.5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_l2ahg"]
-size = Vector3(2, 4, 4)
+size = Vector3(7, 4, 5.36413)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1fv35"]
 size = Vector3(0.649619, 0.648871, 0.224072)
