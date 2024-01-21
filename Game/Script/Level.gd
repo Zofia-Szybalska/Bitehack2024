@@ -20,7 +20,7 @@ func _physics_process(delta):
 
 func reset(mess):
 	Globals.reset(mess)
-	get_tree().reload_current_scene()
+#	get_tree().reload_current_scene()
 
 func _on_timer_timeout():
 	Globals.add_achivment(load("res://Achievements/4.tres"))

@@ -4,7 +4,7 @@ extends CharacterBody3D
 
 func reset(message):
 	Globals.reset(message)
-	get_tree().reload_current_scene()
+#	get_tree().reload_current_scene()
 
 func _physics_process(_delta):
 	var space = get_world_3d().direct_space_state

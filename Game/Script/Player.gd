@@ -10,6 +10,7 @@ var can_move = true
 var sticker
 var is_doing_evil = false
 var camera_movement_blocked = false
+@onready var naklejka = $Naklejka
 
 @onready var camera:Camera3D = $Camera3D
 

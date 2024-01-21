@@ -13,7 +13,7 @@ var cleaned = false
 signal item_cleaned
 var discovered = false
 
-func ready():
+func _ready():
 	player = Globals.player
 
 func footprint():
@@ -25,6 +25,7 @@ func clean():
 		if cleanage < 0 and !cleaned:
 			cleaned = true
 			unlock_camera()
+			player.is_doing_evil = false
 			Globals.remove_clue()
 			queue_free()
 		cleaning_timer = true
@@ -62,18 +63,6 @@ func _on_area_3d_body_exited(_body):
 
 func _on_area_3d_body_entered(_body):
 	can_interact = true
-
-func _on_area_3d_2_input_event(_camera, event, _position, _normal, _shape_idx):
-	print("Halo")
-	mouse_outside = false
-	if locked_on_object:
-		if event is InputEventMouseButton:
-			if Input.is_action_just_pressed("click"):
-				pressed_on_dirt = true
-				player.is_doing_evil = true
-			elif Input.is_action_just_released("click"):
-				pressed_on_dirt = false
-				player.is_doing_evil = false
 
 func _on_timer_timeout():
 	cleaning_timer = false
