@@ -18,5 +18,10 @@ func _process(_delta):
 func _physics_process(delta):
 	path1.progress += pol_move_speed * delta
 
+func reset(mess):
+	Globals.reset(mess)
+	get_tree().reload_current_scene()
+
 func _on_timer_timeout():
 	Globals.add_achivment(load("res://Achievements/4.tres"))
+	reset("Czas ci się skończył, nie dasz rady podmienić dowodów, złapią cię.")

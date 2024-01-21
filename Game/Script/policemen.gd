@@ -2,6 +2,10 @@ extends CharacterBody3D
 
 @onready var ray_cast: RayCast3D = $RayCast3D
 
+func reset(message):
+	Globals.reset(message)
+	get_tree().reload_current_scene()
+
 func _physics_process(_delta):
 	if ray_cast.is_colliding():
 		pass
@@ -16,5 +20,5 @@ func _physics_process(_delta):
 				if !Globals.caugth:
 					Globals.caugth = true
 					Globals.add_achivment(load("res://Achievements/2.tres"))
-				print("Gracz złapany")
+				reset("Policjant cię złapał, trafiłeś do więzienia, ale dzięki twojemu szczęściu czas się cofnął i możesz spróbowac raz jeszcze.")
 

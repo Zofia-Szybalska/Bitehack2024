@@ -33,6 +33,7 @@ func clean():
 		if cleanage < 0 and !cleaned:
 			cleaned = true
 			$"bloody knife/Area3DDirt/CollisionShape3D/Fingerprints".queue_free()
+			player.is_doing_evil = false
 			item_cleaned.emit()
 		cleaning_timer = true
 		$Timer.start()
