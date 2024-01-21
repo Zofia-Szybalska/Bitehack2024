@@ -11,6 +11,7 @@ var collected_achievements = 0
 
 var clues = []
 var achivments = []
+signal achievemen_earned(earned_achevement: achievement)
 
 func reset(reset_message):
 	var knifes = get_tree().get_nodes_in_group("knife")
@@ -36,6 +37,7 @@ func add_clue(clue):
 
 func add_achivment(achivment: achievement):
 	achivments.append(achivment)
+	achievemen_earned.emit(achivment)
 	collected_achievements += 1
 	if collected_achievements == max_achievements:
 		all_achievements = true

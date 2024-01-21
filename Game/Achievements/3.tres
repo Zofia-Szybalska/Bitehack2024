@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="achievement" load_steps=3 format=3 uid="uid://cgsng3p4jkhdr"]
 
-[ext_resource type="Texture2D" uid="uid://ha6dxc8vbdbg" path="res://Assets/2D/achivAllAlf.png" id="1_bsuq0"]
 [ext_resource type="Script" path="res://Script/achivment.gd" id="1_q5wud"]
+[ext_resource type="Texture2D" uid="uid://xlkhdyv3kwrr" path="res://Assets/2D/achivAlltAlf.png" id="1_xi0qk"]
 
 [resource]
 script = ExtResource("1_q5wud")
 name = "Masz je wszystkie"
 description = "Zniwelowałeś wszystkie poszlaki"
-image = ExtResource("1_bsuq0")
+image = ExtResource("1_xi0qk")
