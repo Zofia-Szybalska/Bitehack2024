@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsbrfqbn0c1xe"]
+
+[ext_resource type="Script" path="res://Script/cigarette.gd" id="1_qn1qr"]
+[ext_resource type="PackedScene" uid="uid://c6u7qytr5bayt" path="res://Assets/3D/cigarettes_-_lit_used_2_piece_set.glb" id="2_7tbkx"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_upr6s"]
+size = Vector3(1.34153, 2.18622, 1.47365)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xunmn"]
+resource_local_to_scene = true
+size = Vector3(0.360129, 0.283819, 0.257773)
+
+[node name="Cigarette" type="Node3D"]
+script = ExtResource("1_qn1qr")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0557495, 1.03871, 0.0514791)
+shape = SubResource("BoxShape3D_upr6s")
+
+[node name="Footprint" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 18
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Footprint"]
+shape = SubResource("BoxShape3D_xunmn")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[node name="cigarettes_-_lit_used_2_piece_set" parent="." instance=ExtResource("2_7tbkx")]
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

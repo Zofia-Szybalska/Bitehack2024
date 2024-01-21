@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://i0y7ep04wrlb"]
+
+[ext_resource type="Texture2D" uid="uid://bqumt4ahncoiu" path="res://Assets/2D/footprint.png" id="1_73kpk"]
+[ext_resource type="Script" path="res://Script/footprint.gd" id="1_gtrmv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pxrui"]
+transparency = 1
+albedo_texture = ExtResource("1_73kpk")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_fadvn"]
+center_offset = Vector3(0, 0.1, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_upr6s"]
+size = Vector3(1.34153, 2.18622, 1.47365)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xunmn"]
+size = Vector3(1.23295, 0.283819, 1.17266)
+
+[node name="Footprint" type="Node3D"]
+script = ExtResource("1_gtrmv")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_pxrui")
+mesh = SubResource("PlaneMesh_fadvn")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 32
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0557495, 1.03871, 0.0514791)
+shape = SubResource("BoxShape3D_upr6s")
+
+[node name="Footprint" type="Area3D" parent="."]
+collision_layer = 16
+collision_mask = 18
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Footprint"]
+shape = SubResource("BoxShape3D_xunmn")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
+[connection signal="input_event" from="Footprint" to="." method="_on_area_3d_2_input_event"]
+[connection signal="mouse_exited" from="Footprint" to="." method="_on_area_3d_2_mouse_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

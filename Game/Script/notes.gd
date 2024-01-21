@@ -28,5 +28,5 @@ func load_achivments():
 	for achivment in Globals.achivments:
 		add_achivment(achivment)
 
-func add_achivment(achivment):
+func add_achivment(_achivment):
 	pass
