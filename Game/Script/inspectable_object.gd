@@ -7,7 +7,7 @@ var pressed = false
 var mouse = Vector2()
 var pressed_on_dirt = false
 var mouse_outside = true
-@onready var mesh = $knife
+@onready var mesh = $"bloody knife"
 var cleanage = 1.0
 var cleaning_timer = false
 var cleaned = false
@@ -32,7 +32,7 @@ func clean():
 		cleanage -= 0.03
 		if cleanage < 0 and !cleaned:
 			cleaned = true
-			$knife/Knife/Area3DDirt/CollisionShape3D/Fingerprints.queue_free()
+			$"bloody knife/Area3DDirt/CollisionShape3D/Fingerprints".queue_free()
 			item_cleaned.emit()
 		cleaning_timer = true
 		$Timer.start()

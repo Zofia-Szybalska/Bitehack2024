@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Script/iteractable_object.gd" id="1_nkuxr"]
 [ext_resource type="PackedScene" uid="uid://hfxxsw4kv87n" path="res://Scenes/inspectable_object.tscn" id="2_jtcfx"]
-[ext_resource type="PackedScene" uid="uid://bu6kn64vy7fhw" path="res://Assets/3D/knife.glb" id="3_asonh"]
+[ext_resource type="PackedScene" uid="uid://bd0p2xnfjxjh3" path="res://Assets/3D/bloody knife.glb" id="3_0lg4q"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gupyt"]
 
@@ -24,7 +24,7 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 shape = SubResource("BoxShape3D_dj23j")
 
-[node name="knife" parent="." instance=ExtResource("3_asonh")]
+[node name="bloody knife" parent="." instance=ExtResource("3_0lg4q")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
