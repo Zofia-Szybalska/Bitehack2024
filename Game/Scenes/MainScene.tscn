@@ -440,9 +440,9 @@ transform = Transform3D(0.494121, 0, 0, 0, -2.15987e-08, 0.494121, 0, -0.494121,
 
 [node name="Clues" type="Node3D" parent="."]
 
-[node name="Cigarette" parent="Clues" node_paths=PackedStringArray("player") instance=ExtResource("26_rea4p")]
+[node name="Cigarette" parent="Clues" instance=ExtResource("26_rea4p")]
 transform = Transform3D(1.39967, 0, 0, 0, 1.39967, 0, 0, 0, 1.39967, -3.92378, 0.00545919, -3.17097)
-player = NodePath("../../Player")
+player = null
 
 [node name="Footprint" parent="Clues" node_paths=PackedStringArray("player") instance=ExtResource("27_g01r8")]
 transform = Transform3D(-0.740124, 0, -0.233658, 0, 0.776131, 0, 0.233658, 0, -0.740124, 4.09112, 4.76837e-07, 8.87695)
@@ -451,6 +451,19 @@ player = NodePath("../../Player")
 [node name="Iteractable_object" parent="Clues" node_paths=PackedStringArray("player") instance=ExtResource("4_j6v2e")]
 transform = Transform3D(0.89463, 0, 0.446807, 0, 1, 0, -0.446807, 0, 0.89463, 3.97377, 0.0304832, -5.06198)
 player = NodePath("../../Player")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
