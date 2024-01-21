@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://b8jr16qyhyyk8"]
+[gd_scene load_steps=45 format=3 uid="uid://b8jr16qyhyyk8"]
 
 [ext_resource type="Script" path="res://Script/Level.gd" id="1_ulb51"]
 [ext_resource type="PackedScene" uid="uid://06bmrdxwdv0g" path="res://Scenes/player.tscn" id="1_vj33c"]
@@ -25,6 +25,8 @@
 [ext_resource type="PackedScene" uid="uid://bkigfn1m81srp" path="res://Assets/3D/old_armchair_textures_comparison.glb" id="22_qeikm"]
 [ext_resource type="PackedScene" uid="uid://cnjlwhdl4hlih" path="res://Assets/3D/victim1.glb" id="23_na5pe"]
 [ext_resource type="PackedScene" uid="uid://begvxwyqawgxf" path="res://Assets/3D/door.glb" id="24_a50i3"]
+[ext_resource type="PackedScene" uid="uid://dsbrfqbn0c1xe" path="res://Scenes/cigarette.tscn" id="26_rea4p"]
+[ext_resource type="PackedScene" uid="uid://i0y7ep04wrlb" path="res://Scenes/footprint.tscn" id="27_g01r8"]
 
 [sub_resource type="Curve3D" id="Curve3D_3f3pf"]
 _data = {
@@ -382,6 +384,7 @@ shape = SubResource("BoxShape3D_7jsnr")
 transform = Transform3D(0.0148278, 0, 0, 0, 0.0148278, 0, 0, 0, 0.0148278, 0, 0, -4.08621)
 
 [node name="Armchair" type="StaticBody3D" parent="Models"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0385206, 0)
 
 [node name="old_armchair_textures_comparison" parent="Models/Armchair" instance=ExtResource("22_qeikm")]
 transform = Transform3D(0.00414592, 0, -0.00350978, 0, 0.00543205, 0, 0.00350978, 0, 0.00414592, -3.98987, 0.817735, -4.21954)
@@ -420,6 +423,14 @@ transform = Transform3D(0.0947525, 0, 0, 0, 0.0947525, 0, 0, 0, 0.0947525, 0, 0.
 
 [node name="door" parent="." instance=ExtResource("24_a50i3")]
 transform = Transform3D(-1.45111e-09, 0, -0.0303385, 0, 0.0303385, 0, 0.0331975, 0, -1.32614e-09, -10.1884, -0.0701827, 6.80781)
+
+[node name="Cigarette" parent="." node_paths=PackedStringArray("player") instance=ExtResource("26_rea4p")]
+transform = Transform3D(1.39967, 0, 0, 0, 1.39967, 0, 0, 0, 1.39967, -3.92378, 0.00545919, -3.17097)
+player = NodePath("../Player")
+
+[node name="Footprint" parent="." node_paths=PackedStringArray("player") instance=ExtResource("27_g01r8")]
+transform = Transform3D(-0.740124, 0, -0.233658, 0, 0.776131, 0, 0.233658, 0, -0.740124, 4.09112, 4.76837e-07, 8.87695)
+player = NodePath("../Player")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 

@@ -10,7 +10,7 @@ func cigarette():
 	pass
 
 func _process(_delta):
-	if Input.is_action_just_pressed("interact") and player.see_cigarette() and is_near:
+w	if Input.is_action_just_pressed("interact") and player.see_cigarette() and is_near:
 		player.is_doing_evil = true
 		$Timer2.start()
 		if !discovered:
