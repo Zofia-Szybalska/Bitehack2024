@@ -4,7 +4,7 @@ extends Node3D
 @onready var player = $Player
 @onready var path1 = $Path3D/PathFollow3D
 
-const pol_move_speed := 4.0
+const pol_move_speed := 2.0
 
 func _process(_delta):
 	if Input.is_action_just_pressed("show_Notes"):
