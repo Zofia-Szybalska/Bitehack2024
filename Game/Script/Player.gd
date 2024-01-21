@@ -18,6 +18,7 @@ func _ready():
 	Globals.player = self
 	speed = 10
 	jump_velocity = 4.5
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func lock_movement():
 	$"../ColorRect2".visible = false

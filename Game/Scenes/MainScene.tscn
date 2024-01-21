@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://b8jr16qyhyyk8"]
+[gd_scene load_steps=48 format=3 uid="uid://b8jr16qyhyyk8"]
 
 [ext_resource type="Script" path="res://Script/Level.gd" id="1_ulb51"]
 [ext_resource type="PackedScene" uid="uid://06bmrdxwdv0g" path="res://Scenes/player.tscn" id="1_vj33c"]
@@ -8,12 +8,12 @@
 [ext_resource type="Material" uid="uid://cyqhbvrbpcuej" path="res://Assets/Materials/Floor.tres" id="6_cymni"]
 [ext_resource type="Material" uid="uid://c0ci7kwq3253h" path="res://Assets/Materials/Walls.tres" id="7_tc4ve"]
 [ext_resource type="Environment" uid="uid://dw7t52jp87t0y" path="res://MainEnviro.tres" id="8_3b10a"]
-[ext_resource type="CameraAttributesPractical" path="res://Scenes/MainCamera.tres" id="9_airth"]
+[ext_resource type="CameraAttributesPractical" uid="uid://rhm0stt2kb8" path="res://Scenes/MainCamera.tres" id="9_airth"]
 [ext_resource type="PackedScene" uid="uid://dtdgkt37aa2te" path="res://Assets/3D/chair.fbx" id="10_8emrx"]
 [ext_resource type="PackedScene" uid="uid://bgs4lw30bgsol" path="res://Assets/3D/unseen_fancy_bed.glb" id="10_ohslt"]
 [ext_resource type="PackedScene" uid="uid://b5gticyrolj27" path="res://Assets/3D/Old_Dusty_Bookshelf.glb" id="11_0rs8i"]
 [ext_resource type="PackedScene" uid="uid://dk3bw6oqb1nyq" path="res://Assets/3D/fireplace.fbx" id="12_i3ici"]
-[ext_resource type="Material" path="res://Assets/Materials/chair.tres" id="12_v8lmy"]
+[ext_resource type="Material" uid="uid://b4dgshsoodn0y" path="res://Assets/Materials/chair.tres" id="12_v8lmy"]
 [ext_resource type="PackedScene" uid="uid://c7xdvn1lgn413" path="res://Assets/3D/candle.glb" id="13_dcpj0"]
 [ext_resource type="Material" uid="uid://cyqm6lkn21bkj" path="res://Assets/Materials/fireplace.tres" id="13_sa5lk"]
 [ext_resource type="Texture2D" uid="uid://q1fa6xh6gnke" path="res://Assets/Textures/10258_Wardrobe_diffuse_v1.jpg" id="15_e6v8u"]
@@ -29,6 +29,7 @@
 [ext_resource type="PackedScene" uid="uid://dsbrfqbn0c1xe" path="res://Scenes/cigarette.tscn" id="26_rea4p"]
 [ext_resource type="PackedScene" uid="uid://i0y7ep04wrlb" path="res://Scenes/footprint.tscn" id="27_g01r8"]
 [ext_resource type="PackedScene" uid="uid://cxi8gn088svrc" path="res://Scenes/sticker.tscn" id="28_4ssk2"]
+[ext_resource type="AudioStream" uid="uid://d11erv7ynj2ox" path="res://Assets/Sounds/BgMusic.wav" id="30_67iqs"]
 
 [sub_resource type="Curve3D" id="Curve3D_3f3pf"]
 _data = {
@@ -473,6 +474,10 @@ color = Color(0.0784314, 0.0784314, 0.0784314, 1)
 
 [node name="Footprint" parent="." instance=ExtResource("27_g01r8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.80401, 0, 7.03556)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("30_67iqs")
+autoplay = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="player_entered_range" from="Stickers/Sticker" to="Player" method="_on_sticker_area_entered"]

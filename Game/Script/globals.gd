@@ -36,7 +36,9 @@ func remove_clue():
 	if curr_clues == max_clues and !a_2:
 		a_2 = true
 		add_achivment(load("res://Achievements/3.tres"))
-		reset("Usunąłeś wszystkie dowody, które cię pogrążały, brawo ujdzie ci to płazem, ale niestety czas się cofnął, ciekawe. Może jednak znajdziesz tu jescze coś interesującego?")
+		reset("Usunąłeś wszystkie dowody, które cię pogrążały, brawo ujdzie ci 
+		to płazem, ale niestety czas się cofnął, ciekawe. Może jednak znajdziesz tu jescze coś interesującego?")
+		
 
 func add_clue(clue):
 	clues.append(clue)
@@ -46,6 +48,7 @@ func add_achivment(achivment: achievement):
 	achievemen_earned.emit(achivment)
 	collected_achievements += 1
 	if collected_achievements == max_achievements:
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		get_tree().change_scene_to_file("res://Scenes/You won.tscn")
 
 func add_sticker():
