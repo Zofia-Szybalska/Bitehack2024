@@ -13,5 +13,8 @@ func _physics_process(_delta):
 	if collision:
 		if collision.collider is CharacterBody3D and collision.collider.has_method("lock_movement"):
 			if collision.collider.is_doing_evil:
+				if !Globals.caugth:
+					Globals.caugth = true
+					Globals.add_achivment(load("res://Achievements/2.tres"))
 				print("Gracz złapany")
 

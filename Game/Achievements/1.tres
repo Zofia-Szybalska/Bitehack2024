@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_tt4u0")
-name = ""
+name = "Pozbycie się dowodu"
 description = "Usuąłeś pierwszy dowód"
 image = ExtResource("1_duvx1")

@@ -3,11 +3,12 @@ extends Node
 @export var max_clues: int = 5
 var curr_clues = 0
 var collected_stickers = 0
+var caugth = false
 
 var clues = []
 var achivments = []
 
-func clue_removed():
+func remove_clue():
 	if curr_clues == 0:
 		add_achivment(load("res://Achievements/1.tres"))
 	curr_clues += 1

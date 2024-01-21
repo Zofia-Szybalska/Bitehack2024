@@ -17,3 +17,6 @@ func _process(_delta):
 
 func _physics_process(delta):
 	path1.progress += pol_move_speed * delta
+
+func _on_timer_timeout():
+	Globals.add_achivment(load("res://Achievements/4.tres"))
