@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="achievement" load_steps=2 format=3 uid="uid://dwm1pvijysw8y"]
+
+[ext_resource type="Script" path="res://Script/achivment.gd" id="1_tt4u0"]
+
+[resource]
+script = ExtResource("1_tt4u0")
+name = ""
+image = "C:/Users/Zosia/Documents/Bitehack2024/Game/Assets/2D/achivPrint.png"
+description = "Usuąłeś pierwszy dowód"

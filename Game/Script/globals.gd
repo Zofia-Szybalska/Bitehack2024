@@ -8,7 +8,7 @@ var achivments = []
 func add_clue(clue):
 	clues.append(clue)
 
-func add_achivment(achivment):
+func add_achivment(achivment: achievement):
 	achivments.append(achivment)
 
 func add_sticker():

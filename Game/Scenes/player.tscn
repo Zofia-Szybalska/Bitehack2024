@@ -1,8 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://06bmrdxwdv0g"]
+[gd_scene load_steps=4 format=3 uid="uid://06bmrdxwdv0g"]
 
 [ext_resource type="Script" path="res://Script/Player.gd" id="1_v47uk"]
-[ext_resource type="Environment" uid="uid://dw7t52jp87t0y" path="res://MainEnviro.tres" id="2_g0q6j"]
-[ext_resource type="CameraAttributesPractical" uid="uid://rhm0stt2kb8" path="res://Scenes/MainCamera.tres" id="3_n4xv0"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tuurf"]
 
@@ -21,8 +19,7 @@ mesh = SubResource("CapsuleMesh_fu4v6")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.716055, 0)
-environment = ExtResource("2_g0q6j")
-attributes = ExtResource("3_n4xv0")
+current = true
 
 [node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.616709)
