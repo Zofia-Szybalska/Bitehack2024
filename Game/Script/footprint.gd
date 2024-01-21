@@ -22,8 +22,8 @@ func clean():
 		if cleanage < 0 and !cleaned:
 			cleaned = true
 			unlock_camera()
+			Globals.remove_clue()
 			queue_free()
-			item_cleaned.emit()
 		cleaning_timer = true
 		$Timer.start()
 

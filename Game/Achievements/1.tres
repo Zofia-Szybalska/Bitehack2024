@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="achievement" load_steps=3 format=3 uid="uid://dwm1pvijysw8y"]
 
-[ext_resource type="Texture2D" uid="uid://ha6dxc8vbdbg" path="res://Assets/2D/achivAllAlf.png" id="1_duvx1"]
 [ext_resource type="Script" path="res://Script/achivment.gd" id="1_tt4u0"]
+[ext_resource type="Texture2D" uid="uid://do35bn75pkrfo" path="res://Assets/2D/achivPrintAlf.png" id="1_wwegj"]
 
 [resource]
 script = ExtResource("1_tt4u0")
 name = "Pozbycie się dowodu"
 description = "Usuąłeś pierwszy dowód"
-image = ExtResource("1_duvx1")
+image = ExtResource("1_wwegj")

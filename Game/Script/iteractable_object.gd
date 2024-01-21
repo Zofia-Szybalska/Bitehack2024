@@ -32,6 +32,7 @@ func interact():
 
 func hide_item():
 	item_i.queue_free()
+	Globals.remove_clue()
 	player.unlock_movement()
 
 func exit_item(cleanage):

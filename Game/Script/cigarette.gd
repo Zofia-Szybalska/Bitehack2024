@@ -19,6 +19,7 @@ func _process(_delta):
 
 func _on_timer_2_timeout():
 	player.is_doing_evil = false
+	Globals.remove_clue()
 	queue_free()
 
 
