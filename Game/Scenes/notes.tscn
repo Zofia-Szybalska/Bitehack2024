@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://x4saptvfr3iq" path="res://Assets/2D/Notes.png" id="1_8vd6u"]
 [ext_resource type="Script" path="res://Script/notes.gd" id="1_vqlq6"]
-[ext_resource type="Texture2D" uid="uid://bw7gvqg30rkh3" path="res://Assets/2D/achivAll.png" id="3_b0vi1"]
+[ext_resource type="Texture2D" uid="uid://ha6dxc8vbdbg" path="res://Assets/2D/achivAllAlf.png" id="3_mhfky"]
 
 [node name="Notes" type="Control"]
 layout_mode = 3
@@ -94,26 +94,12 @@ theme_override_constants/separation = 20
 
 [node name="GridContainer" type="GridContainer" parent="TextureRect/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 15
 columns = 3
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
-texture = ExtResource("3_b0vi1")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="TextureRect2" type="TextureRect" parent="TextureRect/VBoxContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("3_b0vi1")
-
-[node name="TextureRect3" type="TextureRect" parent="TextureRect/VBoxContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("3_b0vi1")
-
-[node name="TextureRect4" type="TextureRect" parent="TextureRect/VBoxContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("3_b0vi1")
-
-[node name="TextureRect5" type="TextureRect" parent="TextureRect/VBoxContainer/GridContainer"]
-layout_mode = 2
-texture = ExtResource("3_b0vi1")
+texture = ExtResource("3_mhfky")
+expand_mode = 1

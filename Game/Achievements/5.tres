@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="achievement" load_steps=3 format=3 uid="uid://5wndm3r2wuy3"]
+
+[ext_resource type="Script" path="res://Script/achivment.gd" id="1_4x7th"]
+[ext_resource type="Texture2D" uid="uid://qpsavgeckuvv" path="res://Assets/2D/achivSticAlf.png" id="1_co3hu"]
+
+[resource]
+script = ExtResource("1_4x7th")
+name = "Sheep your Wolf!"
+description = "You collected all 5 stickers!"
+image = ExtResource("1_co3hu")

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="achievement" load_steps=3 format=3 uid="uid://bv2vr7y2ehi1o"]
+
+[ext_resource type="Script" path="res://Script/achivment.gd" id="1_0xb13"]
+[ext_resource type="Texture2D" uid="uid://bc65j4r6ifv21" path="res://Assets/2D/achivPoliceAlf.png" id="1_sfkbg"]
+
+[resource]
+script = ExtResource("1_0xb13")
+name = "Witaj w więzieniu!"
+description = "Zostałeś złapany"
+image = ExtResource("1_sfkbg")

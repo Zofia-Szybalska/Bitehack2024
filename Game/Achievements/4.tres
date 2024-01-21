@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="achievement" load_steps=2 format=3 uid="uid://8ko6273u78nc"]
+
+[ext_resource type="Script" path="res://Script/achivment.gd" id="1_5fgqc"]
+
+[resource]
+script = ExtResource("1_5fgqc")
+name = ""
+description = ""
