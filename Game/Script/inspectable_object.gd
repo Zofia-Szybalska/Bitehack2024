@@ -15,6 +15,7 @@ signal item_cleaned
 signal exited
 
 func _ready():
+	player = Globals.player
 	camera = player.camera
 
 func _input(event):
@@ -56,8 +57,11 @@ func _on_area_3d_input_event(_camera, event, _position, _normal, _shape_idx):
 			pressed_on_dirt = false
 			player.is_doing_evil = false
 
-func _on_area_3d_mouse_exited():
-	mouse_outside = true
-
 func _on_timer_timeout():
 	cleaning_timer = false
+
+func _on_area_3d_dirt_mouse_exited():
+	mouse_outside = false
+
+func _on_area_3d_dirt_mouse_entered():
+	mouse_outside = true

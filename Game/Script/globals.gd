@@ -1,6 +1,6 @@
 extends Node
 
-@export var max_clues: int = 5
+@export var max_clues: int = 3
 var curr_clues = 0
 var collected_stickers = 0
 var caugth = false
@@ -8,6 +8,8 @@ var message = "Usuń dowody swojej zbrodni, ale uważaj, żeby nik cię nie zauw
 var max_achievements = 5
 var all_achievements = false
 var collected_achievements = 0
+var player: CharacterBody3D
+var a_1 = false
 
 var clues = []
 var achivments = []
@@ -25,10 +27,11 @@ func reset(reset_message):
 	message = reset_message
 
 func remove_clue():
-	if curr_clues == 0:
+	if curr_clues == 0 and !a_1:
+		a_1 = true
 		add_achivment(load("res://Achievements/1.tres"))
 	curr_clues += 1
-	if curr_clues == 5:
+	if curr_clues == max_clues:
 		add_achivment(load("res://Achievements/3.tres"))
 		reset("Usunąłeś wszystkie dowody, które cię pogrążały, brawo ujdzie ci to płazem, ale niestety czas się cofnął, ciekawe. Może jednak znajdziesz tu jescze coś interesującego?")
 

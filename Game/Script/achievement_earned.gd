@@ -12,10 +12,11 @@ func load_achievement(earned_achievement: achievement):
 	names.text = earned_achievement.name
 	description.text = earned_achievement.description
 	var tween = get_tree().create_tween()
-	tween.tween_property($".", "modulate", Color(1,1,1,1), 1)
+	tween.tween_property(self, "modulate", Color(1,1,1,1), 1)
+	print("Hejo")
 	$Timer.start()
 
 
 func _on_timer_timeout():
 	var tween = get_tree().create_tween()
-	tween.tween_property($".", "modulate", Color(1,1,1,0), 1)
+	tween.tween_property(self, "modulate", Color(1,1,1,0), 1)
