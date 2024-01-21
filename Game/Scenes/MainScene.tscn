@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://b8jr16qyhyyk8"]
+[gd_scene load_steps=46 format=3 uid="uid://b8jr16qyhyyk8"]
 
 [ext_resource type="Script" path="res://Script/Level.gd" id="1_ulb51"]
 [ext_resource type="PackedScene" uid="uid://06bmrdxwdv0g" path="res://Scenes/player.tscn" id="1_vj33c"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://begvxwyqawgxf" path="res://Assets/3D/door.glb" id="24_a50i3"]
 [ext_resource type="PackedScene" uid="uid://dsbrfqbn0c1xe" path="res://Scenes/cigarette.tscn" id="26_rea4p"]
 [ext_resource type="PackedScene" uid="uid://i0y7ep04wrlb" path="res://Scenes/footprint.tscn" id="27_g01r8"]
+[ext_resource type="PackedScene" uid="uid://cxi8gn088svrc" path="res://Scenes/sticker.tscn" id="28_4ssk2"]
 
 [sub_resource type="Curve3D" id="Curve3D_3f3pf"]
 _data = {
@@ -99,10 +100,6 @@ anchor_right = 1.0
 anchor_bottom = 0.5
 offset_right = 0.0
 grow_horizontal = 0
-
-[node name="Iteractable_object" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_j6v2e")]
-transform = Transform3D(0.89463, 0, 0.446807, 0, 1, 0, -0.446807, 0, 0.89463, 3.97377, 0.0304832, -5.06198)
-player = NodePath("../Player")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.828794, 0.559555, 0, -0.559555, 0.828794, 0, 5, 0)
@@ -310,7 +307,7 @@ mesh = ExtResource("21_pk1qx")
 skeleton = NodePath("../..")
 
 [node name="Cabinet" type="StaticBody3D" parent="Models"]
-transform = Transform3D(0.0123127, 0, 0, 0, -5.15688e-06, 0.0123127, 0, -0.0123127, -5.15688e-06, -6.90962, -0.00931478, 3.03497)
+transform = Transform3D(0.0123127, 0, 0, 0, -5.15688e-06, 0.0123127, 0, -0.0123127, -5.15688e-06, -6.90962, -0.00931478, 2.59934)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Models/Cabinet"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.91583, 21.2198, 119.575)
@@ -414,6 +411,9 @@ transform = Transform3D(-7.20445e-08, 0, 1.29118, 0, 1.4959, 0, -1.64819, 0, -5.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.80039, 1.80808, 8.70439)
 shape = SubResource("BoxShape3D_hg3lm")
 
+[node name="door" parent="Models" instance=ExtResource("24_a50i3")]
+transform = Transform3D(-1.45111e-09, 0, -0.0303385, 0, 0.0303385, 0, 0.0331975, 0, -1.32614e-09, -10.1884, -0.0701827, 6.80781)
+
 [node name="Timer" type="Timer" parent="."]
 wait_time = 180.0
 autostart = true
@@ -421,23 +421,43 @@ autostart = true
 [node name="victim1" parent="." instance=ExtResource("23_na5pe")]
 transform = Transform3D(0.0947525, 0, 0, 0, 0.0947525, 0, 0, 0, 0.0947525, 0, 0.958383, -4.04334)
 
-[node name="door" parent="." instance=ExtResource("24_a50i3")]
-transform = Transform3D(-1.45111e-09, 0, -0.0303385, 0, 0.0303385, 0, 0.0331975, 0, -1.32614e-09, -10.1884, -0.0701827, 6.80781)
+[node name="Stickers" type="Node3D" parent="."]
 
-[node name="Cigarette" parent="." node_paths=PackedStringArray("player") instance=ExtResource("26_rea4p")]
+[node name="Sticker" parent="Stickers" instance=ExtResource("28_4ssk2")]
+transform = Transform3D(-2.15987e-08, 0, 0.494121, 0, 0.494121, 0, -0.494121, 0, -2.15987e-08, 2.54669, 0.466086, 9.59544)
+
+[node name="Sticker2" parent="Stickers" instance=ExtResource("28_4ssk2")]
+transform = Transform3D(-2.15987e-08, 0, 0.494121, 0, 0.494121, 0, -0.494121, 0, -2.15987e-08, 0.97817, 0.296118, 9.59544)
+
+[node name="Sticker3" parent="Stickers" instance=ExtResource("28_4ssk2")]
+transform = Transform3D(0.494121, 0, 0, 0, 0.494121, 0, 0, 0, 0.494121, 3.78891, 0.591245, 4.12751)
+
+[node name="Sticker5" parent="Stickers" instance=ExtResource("28_4ssk2")]
+transform = Transform3D(-2.15987e-08, 0, 0.494121, 0, 0.494121, 0, -0.494121, 0, -2.15987e-08, -6.17676, 0.311033, 2.18285)
+
+[node name="Sticker4" parent="Stickers" instance=ExtResource("28_4ssk2")]
+transform = Transform3D(0.494121, 0, 0, 0, -2.15987e-08, 0.494121, 0, -0.494121, -2.15987e-08, -3.86558, 0.56539, -4.44175)
+
+[node name="Clues" type="Node3D" parent="."]
+
+[node name="Cigarette" parent="Clues" node_paths=PackedStringArray("player") instance=ExtResource("26_rea4p")]
 transform = Transform3D(1.39967, 0, 0, 0, 1.39967, 0, 0, 0, 1.39967, -3.92378, 0.00545919, -3.17097)
-player = NodePath("../Player")
+player = NodePath("../../Player")
 
-[node name="Footprint" parent="." node_paths=PackedStringArray("player") instance=ExtResource("27_g01r8")]
+[node name="Footprint" parent="Clues" node_paths=PackedStringArray("player") instance=ExtResource("27_g01r8")]
 transform = Transform3D(-0.740124, 0, -0.233658, 0, 0.776131, 0, 0.233658, 0, -0.740124, 4.09112, 4.76837e-07, 8.87695)
-player = NodePath("../Player")
+player = NodePath("../../Player")
+
+[node name="Iteractable_object" parent="Clues" node_paths=PackedStringArray("player") instance=ExtResource("4_j6v2e")]
+transform = Transform3D(0.89463, 0, 0.446807, 0, 1, 0, -0.446807, 0, 0.89463, 3.97377, 0.0304832, -5.06198)
+player = NodePath("../../Player")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 
-[editable path="Iteractable_object"]
 [editable path="Path3D/PathFollow3D/Policemen"]
 [editable path="Path3D/PathFollow3D/Policemen/policeman5"]
 [editable path="Models/Chair/chair"]
 [editable path="Models/Side desk/Desk"]
 [editable path="Models/Big desk/Body_low"]
 [editable path="Models/Fireplace/fireplace"]
+[editable path="Clues/Iteractable_object"]
