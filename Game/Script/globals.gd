@@ -46,7 +46,7 @@ func add_achivment(achivment: achievement):
 	achievemen_earned.emit(achivment)
 	collected_achievements += 1
 	if collected_achievements == max_achievements:
-		get_tree().change_scene_to_file("res://Scenes/player.tscn")
+		get_tree().change_scene_to_file("res://Scenes/You won.tscn")
 
 func add_sticker():
 	player.naklejka.play()

@@ -20,14 +20,17 @@ func _ready():
 	jump_velocity = 4.5
 
 func lock_movement():
+	$"../ColorRect2".visible = false
 	can_move = false
 	if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func lock_camera_movement():
+	$"../ColorRect2".visible = false
 	camera_movement_blocked = true
 
 func unlock_camera_movement():
+	$"../ColorRect2".visible = true
 	camera_movement_blocked = false
 
 func _on_sticker_area_entered(new_sticker):
@@ -37,6 +40,7 @@ func _on_sticker_area_exited():
 	sticker = null
 
 func unlock_movement():
+	$"../ColorRect2".visible = true	
 	can_move = true
 	if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -69,7 +73,12 @@ func _physics_process(delta):
 		velocity.y = velocity_y
 		move_and_slide()
 		if Input.is_action_just_pressed("ui_cancel"):
-			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE else Input.MOUSE_MODE_VISIBLE
+			if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED 
+				$"../ColorRect2".visible = true
+			else:
+				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+				$"../ColorRect2".visible = false
 
 
 func _input(event):

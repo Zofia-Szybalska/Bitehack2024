@@ -6,6 +6,9 @@ signal item_cleaned
 var discovered = false
 var is_near = false
 
+func _ready():
+	player = Globals.player
+
 func cigarette():
 	pass
 
